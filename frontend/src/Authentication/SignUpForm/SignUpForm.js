@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios';
 
 function SignUpForm() {
   const initialValues = {
@@ -14,7 +13,6 @@ function SignUpForm() {
     password: Yup.string().min(6, 'Password must be at least 8 characters').required('Password is required'),
   })
 
-  // const [emailExists, setEmailExists] = useState(false);
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
@@ -33,7 +31,6 @@ function SignUpForm() {
         resetForm();
         return response.json();
       } else if (response.status === 422) {
-        // setEmailExists(true);
         throw new Error('Email already exists');
       } else {
         throw new Error('Something went wrong')
@@ -48,7 +45,7 @@ function SignUpForm() {
 
   return (
     <div>
-      <h2>ViewerSignUpForm</h2>
+      <h2>SignUpForm</h2>
       < Formik
         className='user-signup'
         validationSchema={validationSchema}
@@ -67,7 +64,6 @@ function SignUpForm() {
               <Field type="text" name="password" />
               <ErrorMessage name="password" />
             </div>
-            {/* {emailExists && <p>Email already exists</p>} */}
             {submissionSuccess && <p>Successfully signed up!</p>}
             <button type="submit" disabled={isSubmitting}>
               Submit
