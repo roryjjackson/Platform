@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+// import { Formik, Form, Field, ErrorMessage } from 'formik';
+// import * as Yup from 'yup';
 
 function ProfileDashboard() {
   const [profileData, setProfileData] = useState(null);
@@ -23,12 +23,13 @@ function ProfileDashboard() {
     }
   };
 
+
   return (
     <div>
       <h2>Profile Dashboard</h2>
       <button onClick={handleButtonClick}>Fetch Profile content</button>
       {
-        profileData.map(profile => {
+        profileData && profileData.map(profile => {
           return<div>
                   <p>{profile.id}</p>
                   <p>{profile.name}</p>
