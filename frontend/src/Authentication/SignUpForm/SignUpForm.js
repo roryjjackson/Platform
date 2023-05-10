@@ -36,6 +36,30 @@ function SignUpForm() {
         throw new Error('Something went wrong')
       }
     })
+    .then(data => {
+      fetch('http://localhost:3000/users/sign_in', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({ user: values})
+    })
+    })
+    .then(response => {
+      if (response.ok) {
+        const authToken = response.headers.get('Authorization').split(' ')[1];
+        localStorage.setItem('authToken', authToken);
+
+        setSubmissionSuccess(true)
+        setSubmitting(false);
+        resetForm();
+        return response.json();
+      } else if (response.status === 422) {
+        throw new Error('Email already exists');
+      } else {
+        throw new Error('Something went wrong')
+      }
+    })
     .then(data => console.log(data))
     .catch(error => console.error(error))
     .finally(() => setSubmitting(false))

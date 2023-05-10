@@ -20,6 +20,15 @@ const Layout = () => {
           <li>
             <Link to="/contact">Contact</Link>
           </li>
+          <li>
+            <Link to="/users/log_out">LogOutForm</Link>
+          </li>
+          <li>
+            <Link to="/users/dashboard">Profile/User Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/users/dashboard/new">Profile Form</Link>
+          </li>
         </ul>
       </nav>
 

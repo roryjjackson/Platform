@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 
 function GetCurrentUserDetails() {
   const [userData, setUserData] = useState(null);
@@ -33,7 +31,6 @@ function GetCurrentUserDetails() {
         <div>
           <p>Id: {userData.id}</p>
           <p>Email: {userData.email}</p>
-          {/* render other data as needed */}
         </div>
       )}
     </div>
