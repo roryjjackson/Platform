@@ -1,33 +1,35 @@
 import { Outlet, Link } from "react-router-dom";
+import './Layout.css'
+import './NavbarScroll';
 
 const Layout = () => {
   return (
     <>
-      <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
+      <nav className="navbar">
+        <ul className="navbar-items">
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/">Home</Link>
           </li>
-          <li>
-            <Link to="/blogs">Blogs</Link>
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/blogs">Blogs</Link>
           </li>
-          <li>
-            <Link to="/contact">Contact</Link>
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/contact">Contact</Link>
           </li>
-          <li>
-            <Link to="/users/sign_in">SignInForm</Link>
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/users/sign_in">SignInForm</Link>
           </li>
-          <li>
-            <Link to="/contact">Contact</Link>
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/contact">Contact</Link>
           </li>
-          <li>
-            <Link to="/users/log_out">LogOutForm</Link>
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/users/log_out">LogOutForm</Link>
           </li>
-          <li>
-            <Link to="/users/dashboard">Profile/User Dashboard</Link>
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/users/dashboard">Profile/User Dashboard</Link>
           </li>
-          <li>
-            <Link to="/users/dashboard/new">Profile Form</Link>
+          <li className="navbar-item">
+            <Link className="navbar-link" to="/users/dashboard/new">Profile Form</Link>
           </li>
         </ul>
       </nav>

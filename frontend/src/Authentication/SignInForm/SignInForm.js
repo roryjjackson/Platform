@@ -17,7 +17,7 @@ function SignInForm() {
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
-    console.log(values)
+    // console.log(values)
     fetch('http://localhost:3000/users/sign_in', {
       method: 'POST',
       headers: {
@@ -27,6 +27,7 @@ function SignInForm() {
     })
     .then(response => {
       if (response.ok) {
+        // console.log(response)
         const authToken = response.headers.get('Authorization').split(' ')[1];
         localStorage.setItem('authToken', authToken);
 

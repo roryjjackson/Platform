@@ -13,10 +13,30 @@ function ProfileForm() {
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [profileValid, setProfileValid] = useState(false)
+  // const [userId, setUserId] = useState(null)
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
     const authToken = localStorage.getItem('authToken');
     const url = 'http://localhost:3000/api/v1/profiles';
+
+    // fetch('http://localhost:3000/member_details', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Authorization': `Bearer ${authToken}`,
+    //     'Content-Type': 'application/json'
+    //   }
+    // }).then (response => {
+    //   if (response.ok) {
+    //     console.log(response)
+    //     return response.json()
+    //     // setUserId(response.id)
+    //   } else {
+    //     throw new Error('couldnt find user, error')
+    //   }
+    // }).then(data => {
+    //   console.log(data)
+    //   setUserId(data.id)
+    // })
 
     fetch(`${url}`, {
       method: 'GET',
@@ -35,7 +55,7 @@ function ProfileForm() {
       .then(data => {
         console.log(data)
         // If a Profile already exists for the user, show an error message and do not submit the form
-        if (data.length > 1) {
+        if (data.length > 2) {
           setProfileValid(true)
           console.log('an error has occured')
           throw new Error('A Profile already exists for this user');
@@ -57,7 +77,7 @@ function ProfileForm() {
           setSubmitting(false);
           resetForm();
         } else {
-          setProfileValid(false)
+          // setProfileValid(false)
           throw new Error('Error submitting form data');
         }
       })
@@ -92,8 +112,8 @@ function ProfileForm() {
               <Field type="checkbox" name="helper" initialValue={false} />
               <ErrorMessage name="helper" />
             </div>
-            {!profileValid && <p>User already has a profile, you cannot create another</p>}
-            {profileValid && <p>There is already a profile for this user</p>}
+            {profileValid && <p>User already has a profile, you cannot create another</p>}
+            {/* {profileValid && <p>There is already a profile for this user</p>} */}
             {submissionSuccess && <p>Successfully signed up!</p>}
             <button type="submit" disabled={isSubmitting}>
               Submit
