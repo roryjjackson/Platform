@@ -57,6 +57,7 @@ function ProfileForm() {
           setSubmitting(false);
           resetForm();
         } else {
+          setProfileValid(false)
           throw new Error('Error submitting form data');
         }
       })
@@ -91,6 +92,7 @@ function ProfileForm() {
               <Field type="checkbox" name="helper" initialValue={false} />
               <ErrorMessage name="helper" />
             </div>
+            {!profileValid && <p>User already has a profile, you cannot create another</p>}
             {profileValid && <p>There is already a profile for this user</p>}
             {submissionSuccess && <p>Successfully signed up!</p>}
             <button type="submit" disabled={isSubmitting}>

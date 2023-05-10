@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
 
 function LogOutForm() {
+  const [loggedOut, setLoggedOut] = useState(false);
+
   function handleSubmit() {
     const authToken = localStorage.getItem('authToken');
 
@@ -12,12 +12,10 @@ function LogOutForm() {
         'content-type': 'application/json',
         'Authorization': `Bearer ${authToken}`,
       }
-      // body: JSON.stringify({ user: values})
     })
     .then(response => {
       if (response.ok) {
-        // setSubmitting(false);
-        // resetForm();
+        setLoggedOut(true)
         return response.json();
       } else if (response.status === 422) {
         throw new Error('Email already exists');
@@ -27,12 +25,7 @@ function LogOutForm() {
     })
     .then(data => console.log(data))
     .catch(error => console.error(error))
-    // .finally(() => setSubmitting(false))
   };
-
-
-
-
 
   return (
     <div>
@@ -40,6 +33,7 @@ function LogOutForm() {
       <button onClick={handleSubmit} type="submit">
         Submit
       </button>
+      { loggedOut && "successfully logged out"}
     </div>
     )
 

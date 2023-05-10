@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { Link } from 'react-router-dom';
 
 function SignInForm() {
   const initialValues = {
@@ -67,10 +68,11 @@ function SignInForm() {
               <Field type="text" name="password" />
               <ErrorMessage name="password" />
             </div>
-            {submissionSuccess && <p>Successfully signed up!</p>}
+            {submissionSuccess && <p>Successfully signed in!</p>}
             <button type="submit" disabled={isSubmitting}>
               Submit
             </button>
+            < Link to="/users/sign_up">Sign Up</Link>
           </Form>
         )}
       </ Formik>
