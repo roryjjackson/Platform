@@ -1,6 +1,4 @@
-import React, { useState } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
+import React from 'react';
 
 function DestroyProfile() {
   function handleSubmit() {
@@ -12,12 +10,9 @@ function DestroyProfile() {
         'content-type': 'application/json',
         'Authorization': `Bearer ${authToken}`,
       }
-      // body: JSON.stringify({ user: values})
     })
     .then(response => {
       if (response.ok) {
-        // setSubmitting(false);
-        // resetForm();
         return response.json();
       } else if (response.status === 422) {
         throw new Error('Email already exists');
@@ -27,12 +22,7 @@ function DestroyProfile() {
     })
     .then(data => console.log(data))
     .catch(error => console.error(error))
-    // .finally(() => setSubmitting(false))
   };
-
-
-
-
 
   return (
     <div>

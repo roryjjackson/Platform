@@ -19,25 +19,6 @@ function ProfileForm() {
     const authToken = localStorage.getItem('authToken');
     const url = 'http://localhost:3000/api/v1/profiles';
 
-    // fetch('http://localhost:3000/member_details', {
-    //   method: 'GET',
-    //   headers: {
-    //     'Authorization': `Bearer ${authToken}`,
-    //     'Content-Type': 'application/json'
-    //   }
-    // }).then (response => {
-    //   if (response.ok) {
-    //     console.log(response)
-    //     return response.json()
-    //     // setUserId(response.id)
-    //   } else {
-    //     throw new Error('couldnt find user, error')
-    //   }
-    // }).then(data => {
-    //   console.log(data)
-    //   setUserId(data.id)
-    // })
-
     fetch(`${url}`, {
       method: 'GET',
       headers: {

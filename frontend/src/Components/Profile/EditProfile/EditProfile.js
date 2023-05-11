@@ -16,7 +16,7 @@ function EditProfile() {
   function handleSubmit(values, { setSubmitting, resetForm }) {
     console.log(values)
     const authToken = localStorage.getItem('authToken')
-    console.log(localStorage)
+
     fetch('http://localhost:3000/api/v1/profiles/', { // Need to work out how to integrate the ID number of the profile so the api know which to delete
       method: 'PATCH',
       headers: {

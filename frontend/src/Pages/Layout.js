@@ -8,6 +8,8 @@ const Layout = () => {
 
   const toggleNav = () => setIsOpen(!isOpen);
 
+  const isLoggedIn = localStorage.getItem("authToken") !== null;
+
   return (
     <>
     <nav className="navbar">
@@ -32,21 +34,28 @@ const Layout = () => {
           <li className="nav-item">
             <Link onClick={toggleNav} className="nav-link" to="/contact">Contact</Link>
           </li>
-          <li className="nav-item">
-            <Link onClick={toggleNav} className="nav-link" to="/users/sign_in">SignInForm</Link>
-          </li>
-          <li className="nav-item">
-            <Link onClick={toggleNav} className="nav-link" to="/contact">Contact</Link>
-          </li>
-          <li className="nav-item">
-            <Link onClick={toggleNav} className="nav-link" to="/users/log_out">LogOutForm</Link>
-          </li>
-          <li className="nav-item">
-            <Link onClick={toggleNav} className="nav-link" to="/users/dashboard">Profile/User Dashboard</Link>
-          </li>
-          <li className="nav-item">
-            <Link onClick={toggleNav} className="nav-link" to="/users/dashboard/new">Profile Form</Link>
-          </li>
+          {isLoggedIn ? (
+              <>
+              <li className="nav-item">
+                <Link onClick={toggleNav} className="nav-link" to="/users/log_out">Logout</Link>
+              </li>
+              <li className="nav-item">
+                <Link onClick={toggleNav} className="nav-link" to="/users/dashboard">Profile Dashboard</Link>
+              </li>
+              <li className="nav-item">
+                <Link onClick={toggleNav} className="nav-link" to="/users/get_current">Current user</Link>
+              </li>
+              <li className="nav-item">
+                <Link onClick={toggleNav} className="nav-link" to="/users/dashboard/new">Profile Form</Link>
+              </li>
+            </>
+               ) : (
+                <>
+                  <li className="nav-item">
+                    <Link onClick={toggleNav} className="nav-link" to="/users/sign_in">Login</Link>
+                  </li>
+                </>
+              )}
         </ul>
       </div>
     </nav>

@@ -16,6 +16,8 @@ function LogOutForm() {
     .then(response => {
       if (response.ok) {
         setLoggedOut(true)
+        localStorage.removeItem('authToken')
+
         return response.json();
       } else if (response.status === 422) {
         throw new Error('Email already exists');
