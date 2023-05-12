@@ -13,7 +13,7 @@ function ProfileForm() {
   })
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
-  const [profileValid, setProfileValid] = useState(false)
+  // const [profileValid, setProfileValid] = useState(false);
   const navigate = useNavigate();
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
@@ -35,8 +35,9 @@ function ProfileForm() {
         }
       })
       .then(data => {
-        if (data.length > 2) {
-          setProfileValid(true)
+        if (data.length < 0) {
+          // setProfileValid(true)
+          console.log(data)
           console.log('an error has occured')
           throw new Error('A Profile already exists for this user');
         } else {
@@ -93,12 +94,42 @@ function ProfileForm() {
                 <Field type="text" name="name" />
                 <ErrorMessage name="name" />
               </div>
-              <div className='form-field'>
+              {/* <div className='form-field'>
                 <label className='form-label' htmlFor="helper">Helper:</label>
                 <Field type="checkbox" name="helper" initialValue={false} />
                 <ErrorMessage name="helper" />
+              </div> */}
+              <div className='form-field'>
+                <label className='form-label' htmlFor="hours">Hours:</label>
+                <Field type="text" name="hours" initialValue={false} />
+                <ErrorMessage name="hours" />
               </div>
-              {profileValid && <p>User already has a profile, you cannot create another</p>}
+              <div className='form-field'>
+                <label className='form-label' htmlFor="job_title">Job title:</label>
+                <Field type="text" name="job_title" initialValue={false} />
+                <ErrorMessage name="job_title" />
+              </div>
+              <div className='form-field'>
+                <label className='form-label' htmlFor="how">How did you get started:</label>
+                <Field type="text" name="how" initialValue={false} />
+                <ErrorMessage name="how" />
+              </div>
+              <div className='form-field'>
+                <label className='form-label' htmlFor="why">Why did you get started:</label>
+                <Field type="text" name="why" initialValue={false} />
+                <ErrorMessage name="why" />
+              </div>
+              <div className='form-field'>
+                <label className='form-label' htmlFor="what">What do you do day to day:</label>
+                <Field type="text" name="what" initialValue={false} />
+                <ErrorMessage name="what" />
+              </div>
+              <div className='form-field'>
+                <label className='form-label' htmlFor="advice">Any key advice for newbies:</label>
+                <Field type="text" name="advice" initialValue={false} />
+                <ErrorMessage name="advice" />
+              </div>
+              {/* {profileValid && <p>User already has a profile, you cannot create another</p>} */}
               {/* {profileValid && <p>There is already a profile for this user</p>} */}
               {submissionSuccess && <p>Successfully signed up!</p>}
               <button className='button' type="submit" disabled={isSubmitting}>

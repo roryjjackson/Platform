@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 function SignUpForm() {
   const initialValues = {
@@ -14,6 +15,7 @@ function SignUpForm() {
   })
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const navigate = useNavigate();
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
     console.log(values)
@@ -65,7 +67,15 @@ function SignUpForm() {
     .finally(() => setSubmitting(false))
   };
 
-
+  useEffect(() => {
+    if (submissionSuccess) {
+      const timer = setTimeout(() => {
+        navigate('/users/sign_in');
+        window.location.reload();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [submissionSuccess, navigate]);
 
   return (
     <div>
