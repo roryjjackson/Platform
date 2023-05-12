@@ -25,7 +25,6 @@ export default function App() {
           <Route path="users/log_out" element={<LogOutForm />} />
           <Route path="users/dashboard" element={<ProfileDashboard />} />
           <Route path="users/dashboard/new" element={<ProfileForm />} />
-          {/* <Route path="users/log_out" element={<LogOutForm />} /> */}
         </Route>
       </Routes>
     </BrowserRouter>

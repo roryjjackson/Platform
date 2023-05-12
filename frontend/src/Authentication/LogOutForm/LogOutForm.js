@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
 function LogOutForm() {
@@ -19,6 +19,9 @@ function LogOutForm() {
     .then(response => {
       if (response.ok) {
         setLoggedOut(true)
+        // if (response.clear_auth_token) {
+        //   localStorage.removeItem('authToken');
+        // }
         localStorage.removeItem('authToken')
 
         return response.json();
