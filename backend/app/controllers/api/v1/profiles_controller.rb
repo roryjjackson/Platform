@@ -5,6 +5,12 @@ class Api::V1::ProfilesController < ApiController
 
     # @profiles = Profile.where(user_id: current_user.id)
     # @profiles = current_user.profiles
+    @markers = @profiles.geocoded.map do |profile|
+      {
+        lat: profile.latitude,
+        lng: profile.longitude
+      }
+    end
     render json: @profiles, status: :ok
   end
 
