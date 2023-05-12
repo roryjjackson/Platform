@@ -5,12 +5,12 @@ class Api::V1::ProfilesController < ApiController
 
     # @profiles = Profile.where(user_id: current_user.id)
     # @profiles = current_user.profiles
-    @markers = @profiles.geocoded.map do |profile|
-      {
-        lat: profile.latitude,
-        lng: profile.longitude
-      }
-    end
+    # @markers = @profiles.geocoded.map do |profile|
+    #   {
+    #     lat: profile.latitude,
+    #     lng: profile.longitude
+    #   }
+    # end
     render json: @profiles, status: :ok
   end
 
@@ -26,8 +26,8 @@ class Api::V1::ProfilesController < ApiController
   def create
     @profile = Profile.new(profile_params)
     # @profile = current_user.profile.new(company_params)
-    puts "current user #{current_user}"
-    @profile.user_id = current_user.id
+    puts "current user #{current_user.id}"
+    @profile.user = current_user
     authorize @profile
     if @profile.save
       render json: @profile, status: :ok
@@ -67,7 +67,7 @@ class Api::V1::ProfilesController < ApiController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :helper)
+    params.require(:profile).permit(:name, :helper, :how, :why, :what, :advice, :hours, :job_satisfaction, :job_title)
   end
 
   def set_profile

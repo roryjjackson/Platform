@@ -9,8 +9,8 @@
 User.destroy_all
 
 user1 = User.create(email: "test1@test.com", password: "123456")
-user2 = User.create(email: "test1@test.com", password: "123456")
-user3 = User.create(email: "test1@test.com", password: "123456")
+user2 = User.create(email: "test2@test.com", password: "123456")
+user3 = User.create(email: "test3@test.com", password: "123456")
 
 Profile.destroy_all
 
