@@ -1,0 +1,48 @@
+.section {
+  min-height: 100vh;
+  padding: auto;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section.one h2 {
+  font-size: 3rem;
+}
+
+.main-page-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-page-content.top {
+  margin-bottom: 30px;
+}
+
+.main-page-content .right {
+  display: flex;
+  text-align: left;
+  align-items: center;
+}
+
+.main-page-content ul {
+  list-style: none;
+}
+
+.main-page-content li {
+  margin: 20px;
+}
+
+
+.main-page-content .left {
+  max-width: 60%;
+  text-align: left;
+}
+
+.main-page-content img {
+  max-height: 300px;
+  width: 80vw;
+  margin: 0 auto;
+  object-fit: cover;
+}

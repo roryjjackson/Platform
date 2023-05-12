@@ -1,0 +1,126 @@
+.navbar.hidden {
+  top: -100px;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: auto;
+  z-index: 9999;
+  background: transparent;
+  transition: top 0.5s ease-in-out;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  margin-left: 50px;
+  padding: 20px 0;
+}
+.navbar-logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.navbar-toggle {
+  display: inline-block;
+  margin-left: 1rem;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-toggle {
+    display: inline-block;
+  }
+
+  .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    max-height: 0;
+    padding: 0;
+  }
+
+  .navbar-collapse.show {
+    max-height: 350px;
+    justify-content: center;
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .nav-item {
+    margin-bottom: 1rem;
+  }
+}
+
+.navbar-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(4px, 4px);
+}
+
+.navbar-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(4px, -4px);
+}
+
+.navbar-toggle span {
+  display: block;
+  width: 1.5rem;
+  height: 2px;
+  margin-bottom: 0.3rem;
+  background-color: #333;
+  transition: transform 0.3s ease;
+}
+
+.navbar-collapse {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  /* padding: 20px 0; */
+  margin-right: 50px;
+}
+
+.navbar-nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+}
+
+.nav-item {
+  margin-left: 1.5rem;
+}
+
+.nav-link {
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+}

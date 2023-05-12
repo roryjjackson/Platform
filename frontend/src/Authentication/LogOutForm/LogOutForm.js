@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 function LogOutForm() {
   const [loggedOut, setLoggedOut] = useState(false);
+  const navigate = useNavigate();
 
   function handleSubmit() {
     const authToken = localStorage.getItem('authToken');
@@ -16,6 +19,8 @@ function LogOutForm() {
     .then(response => {
       if (response.ok) {
         setLoggedOut(true)
+        localStorage.removeItem('authToken')
+
         return response.json();
       } else if (response.status === 422) {
         throw new Error('Email already exists');
@@ -27,11 +32,21 @@ function LogOutForm() {
     .catch(error => console.error(error))
   };
 
+  useEffect(() => {
+    if (loggedOut) {
+      const timer = setTimeout(() => {
+        navigate('/');
+        window.location.reload();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [loggedOut, navigate]);
+
   return (
     <div>
-      <h2>LogOutForm</h2>
-      <button onClick={handleSubmit} type="submit">
-        Submit
+      <h2 className='page-title'>Log out</h2>
+      <button className='button' onClick={handleSubmit} type="submit">
+        Log out
       </button>
       { loggedOut && "successfully logged out"}
     </div>
