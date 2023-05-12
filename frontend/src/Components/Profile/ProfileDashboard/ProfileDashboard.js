@@ -35,6 +35,10 @@ function ProfileDashboard() {
             return<div className='profile-card'>
                     <p>ID: {profile.id}</p>
                     <p>Name: {profile.name}</p>
+                    <p>Why: {profile.why}</p>
+                    <p>What: {profile.what}</p>
+                    <p>How: {profile.how}</p>
+                    <p>Advice: {profile.advice}</p>
                   </div>
           })
         }
