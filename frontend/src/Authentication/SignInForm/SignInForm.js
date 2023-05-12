@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
@@ -19,7 +19,6 @@ function SignInForm() {
   const navigate = useNavigate();
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
-    // console.log(values)
     fetch('http://localhost:3000/users/sign_in', {
       method: 'POST',
       headers: {
@@ -29,14 +28,12 @@ function SignInForm() {
     })
     .then(response => {
       if (response.ok) {
-        // console.log(response)
         const authToken = response.headers.get('Authorization').split(' ')[1];
         localStorage.setItem('authToken', authToken);
 
         setSubmissionSuccess(true)
         setSubmitting(false);
         resetForm();
-        navigate('/')
         return response.json();
       } else if (response.status === 422) {
         throw new Error('Email already exists');
@@ -49,7 +46,15 @@ function SignInForm() {
     .finally(() => setSubmitting(false))
   };
 
-
+  useEffect(() => {
+    if (submissionSuccess) {
+      const timer = setTimeout(() => {
+        navigate('/');
+        window.location.reload();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [submissionSuccess, navigate]);
 
   return (
     <div>

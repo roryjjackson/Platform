@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 
 function ProfileForm() {
@@ -13,7 +14,7 @@ function ProfileForm() {
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [profileValid, setProfileValid] = useState(false)
-  // const [userId, setUserId] = useState(null)
+  const navigate = useNavigate();
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
     const authToken = localStorage.getItem('authToken');
@@ -34,14 +35,11 @@ function ProfileForm() {
         }
       })
       .then(data => {
-        console.log(data)
-        // If a Profile already exists for the user, show an error message and do not submit the form
         if (data.length > 2) {
           setProfileValid(true)
           console.log('an error has occured')
           throw new Error('A Profile already exists for this user');
         } else {
-          // Otherwise, submit the form data
           return fetch(url, {
             method: 'POST',
             headers: {
@@ -58,7 +56,6 @@ function ProfileForm() {
           setSubmitting(false);
           resetForm();
         } else {
-          // setProfileValid(false)
           throw new Error('Error submitting form data');
         }
       })
@@ -69,39 +66,48 @@ function ProfileForm() {
   };
 
 
-
+  useEffect(() => {
+    if (submissionSuccess) {
+      const timer = setTimeout(() => {
+        navigate('/');
+        window.location.reload();
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [submissionSuccess, navigate]);
 
 
   return (
     <div>
-      <h2>Create Profile</h2>
-      < Formik
-        // className='user-Profile'
-        validationSchema={validationSchema}
-        initialValues={initialValues}
-        onSubmit={handleSubmit}
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <div>
-              <label htmlFor="name">Name:</label>
-              <Field type="text" name="name" />
-              <ErrorMessage name="name" />
-            </div>
-            <div>
-              <label htmlFor="helper">Helper:</label>
-              <Field type="checkbox" name="helper" initialValue={false} />
-              <ErrorMessage name="helper" />
-            </div>
-            {profileValid && <p>User already has a profile, you cannot create another</p>}
-            {/* {profileValid && <p>There is already a profile for this user</p>} */}
-            {submissionSuccess && <p>Successfully signed up!</p>}
-            <button type="submit" disabled={isSubmitting}>
-              Submit
-            </button>
-          </Form>
-        )}
-      </ Formik>
+      <h2 className='page-title'>Create Profile</h2>
+      <div className='form-container'>
+        < Formik
+          validationSchema={validationSchema}
+          initialValues={initialValues}
+          onSubmit={handleSubmit}
+        >
+          {({ isSubmitting }) => (
+            <Form>
+              <div className='form-field'>
+                <label className='form-label' htmlFor="name">Name:</label>
+                <Field type="text" name="name" />
+                <ErrorMessage name="name" />
+              </div>
+              <div className='form-field'>
+                <label className='form-label' htmlFor="helper">Helper:</label>
+                <Field type="checkbox" name="helper" initialValue={false} />
+                <ErrorMessage name="helper" />
+              </div>
+              {profileValid && <p>User already has a profile, you cannot create another</p>}
+              {/* {profileValid && <p>There is already a profile for this user</p>} */}
+              {submissionSuccess && <p>Successfully signed up!</p>}
+              <button className='button' type="submit" disabled={isSubmitting}>
+                Submit
+              </button>
+            </Form>
+          )}
+        </ Formik>
+      </div>
     </div>
     )
 
