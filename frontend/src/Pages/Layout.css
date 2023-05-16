@@ -7,7 +7,7 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: auto;
+  height: 8vh;
   z-index: 9999;
   background: transparent;
   transition: top 0.5s ease-in-out;
@@ -15,20 +15,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* background-color: #ef00fc; */
+  background: linear-gradient( 45deg, #0400ff66, #ef00fc69);
+  /* box-shadow: 0 2px 4px rgba(255, 255, 255, 0.3); */
 }
 
 .navbar-brand {
   display: flex;
   align-items: center;
-  margin-left: 50px;
+  margin-left: 10vw;
   padding: 20px 0;
 }
 .navbar-logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #333;
+  color: #bcbcbc;
   text-decoration: none;
 }
 
@@ -53,7 +54,7 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background-color: #fff;
+    background-color: #000000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: max-height 0.3s ease;
@@ -94,7 +95,7 @@
   width: 1.5rem;
   height: 2px;
   margin-bottom: 0.3rem;
-  background-color: #333;
+  background-color: #626262;
   transition: transform 0.3s ease;
 }
 
@@ -104,7 +105,7 @@
   align-items: center;
   flex: 1;
   /* padding: 20px 0; */
-  margin-right: 50px;
+  margin-right: 10vw;
 }
 
 .navbar-nav {
@@ -121,6 +122,6 @@
 
 .nav-link {
   font-size: 1.2rem;
-  color: #333;
+  color: #bcbcbc;
   text-decoration: none;
 }

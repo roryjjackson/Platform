@@ -1,51 +1,67 @@
 import GetCurrentUserDetails from "../Authentication/GetCurrentUserDetails/GetCurrentUserDetails";
 import './Home.css';
+import Footer from "./Footer/Footer";
 
 const Home = () => {
   return(
     <div className="home-page">
+      <img className="image map" src="https://res.cloudinary.com/dfipoufmj/image/upload/v1684244486/Pngtree_world_map_1970382_jh9kie.png" alt=""></img>
       <section className="section one">
-        <div>
           <div className="main-page-content top">
             <div className="left">
-              <h2>Explore lifes opportunites, through the eyes of others</h2>
-              <p>Our community of inspiring people are here to help! There's no greater feeling than inspiring others to follow in your footsteps</p>
-            </div>
-            <div className="right">
-              <ul>
-                <li>01: Path one</li>
-                <li>02: Path two</li>
-                <li>03: Path three</li>
-              </ul>
-            </div>
-          </div>
-          <div className="main-page-content bottom">
-            <div>
-              <img src="https://res.cloudinary.com/dfipoufmj/image/upload/v1683735572/pexels-singkham-1108572_x7d2fq.jpg" alt=""></img>
-              <div>
-                <p>some text here about what we do</p>
-                <button>OUR DASHBOARD</button>
+              <h1>Mapped out</h1>
+              <h2>The app that helps you explore lifes opportunites, through the eyes of others</h2>
+              <p>Find experienced professionals willing to help...</p>
+              <div className="button-container">
+                <button className="button lets-go">Lets go</button>
+                <button className="button lets-go">Discover</button>
               </div>
             </div>
-          </div>
         </div>
       </section>
+
+
+      <h2 className="subheader">How it works</h2>
       <section className="section two">
-        <div>
-          <h2>Become a member of our community, and see how you could connect with others</h2>
-          <p>Everybody has some aluable information and knowledge to share, whether it be experiences of lessons learnt from failures, its all valuable.</p>
-        </div>
+        {/* <div> */}
+          <div className="method-container">
+            <div className="method-card">
+              <div>
+                <h3>Step one:</h3>
+                <p>Answer our questions instinctively, and let our algorithm present you with opportunities you may not have thought of.</p>
+              </div>
+              <button className="button test">Take our test</button>
+            </div>
+          </div>
+          <div className="method-container">
+            <div className="method-card">
+              <div>
+                <h3>Step two:</h3>
+                <p>Discover our portfolio of professionals willing to help, and become inspired by their journeys!</p>
+              </div>
+              <button className="button test">Discover</button>
+            </div>
+          </div>
+          <div className="method-container">
+            <div className="method-card">
+              <div>
+                <h3>Step three:</h3>
+                <p>Connect to established professials and begin making the right turns towards your potential new start!</p>
+              </div>
+              <button className="button test">Connect</button>
+            </div>
+          </div>
+        {/* </div> */}
       </section>
-      <section>
-        <div>
-          <h2>We are dedicated to staying a free to use platform</h2>
-          <p>Life comes at everyone at a different pace, we all have points at which we struggle. So lets share our information around and make life for everyone better!</p>
-        </div>
+
+      <h2 className="subheader">Our Mission</h2>
+
+      <section className="section two">
+        <h3>Who has ever heard the question "What do you want to be when you grow up?"</h3>
+        <p>Likelihood is you have, but its one of the trickiest things to answer for most of us. People now regularly have career changes throughout their lives, and what typically inspires that change?</p>
+
       </section>
-      <footer>
-        <p>Copyright access to MappedOut</p>
-      </footer>
-      < GetCurrentUserDetails />
+      < Footer />
     </div>
   );
 };

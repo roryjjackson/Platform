@@ -34,6 +34,9 @@ const Layout = () => {
           <li className="nav-item">
             <Link onClick={toggleNav} className="nav-link" to="/contact">Contact</Link>
           </li>
+          {/* <li className="nav-item">
+            <Link onClick={toggleNav} className="nav-link" to="/users/sign_in">Login</Link>
+          </li> */}
           {isLoggedIn ? (
               <>
               <li className="nav-item">
