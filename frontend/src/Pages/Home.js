@@ -4,6 +4,7 @@ import Footer from "./Footer/Footer";
 
 const Home = () => {
   return(
+    <>
     <div className="home-page">
       <img className="image map" src="https://res.cloudinary.com/dfipoufmj/image/upload/v1684244486/Pngtree_world_map_1970382_jh9kie.png" alt=""></img>
       <section className="section one">
@@ -54,15 +55,27 @@ const Home = () => {
         {/* </div> */}
       </section>
 
-      <h2 className="subheader">Our Mission</h2>
 
-      <section className="section two">
-        <h3>Who has ever heard the question "What do you want to be when you grow up?"</h3>
-        <p>Likelihood is you have, but its one of the trickiest things to answer for most of us. People now regularly have career changes throughout their lives, and what typically inspires that change?</p>
-
+      <section className="section three">
+        <h2 className="subheader">Our Mission</h2>
+        <div className="mission-content-container">
+          <h3>Who has ever heard the question "What do you want to be when you grow up?"</h3>
+          <p>Likelihood is you have, but its one of the trickiest things to answer for most of us. People now regularly have career changes throughout their lives, and what typically inspires that change?</p>
+          <h3>People!</h3>
+          <p>At least from our humble experince in life so far, you drive towards something based on someone you've either seen hard at work or from an inspireing conversation. Our aim is to connect those willing to help others, with those looking for help!</p>
+        </div>
       </section>
-      < Footer />
+
+      <section className="section four">
+        <h2 className="subheader">How to get started</h2>
+        <p>If you believe you have something to share, and would like to buddy up with someone, sign up below!</p>
+        <div>
+          <button className="button test">Let's begin</button>
+        </div>
+      </section>
     </div>
+      < Footer />
+    </>
   );
 };
 

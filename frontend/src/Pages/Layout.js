@@ -28,12 +28,12 @@ const Layout = () => {
           <li className="nav-item">
             <Link onClick={toggleNav} className="nav-link" to="/">Home</Link>
           </li>
-          <li className="nav-item">
+          {/* <li className="nav-item">
             <Link onClick={toggleNav} className="nav-link" to="/blogs">Blogs</Link>
           </li>
           <li className="nav-item">
             <Link onClick={toggleNav} className="nav-link" to="/contact">Contact</Link>
-          </li>
+          </li> */}
           {/* <li className="nav-item">
             <Link onClick={toggleNav} className="nav-link" to="/users/sign_in">Login</Link>
           </li> */}
@@ -43,7 +43,7 @@ const Layout = () => {
                 <Link onClick={toggleNav} className="nav-link" to="/users/log_out">Logout</Link>
               </li>
               <li className="nav-item">
-                <Link onClick={toggleNav} className="nav-link" to="/users/dashboard">Profile Dashboard</Link>
+                <Link onClick={toggleNav} className="nav-link" to="/users/dashboard">Dashboard</Link>
               </li>
               <li className="nav-item">
                 <Link onClick={toggleNav} className="nav-link" to="/users/get_current">Current user</Link>

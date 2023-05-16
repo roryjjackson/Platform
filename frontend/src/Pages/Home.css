@@ -1,3 +1,8 @@
+.home-page {
+  margin: 8vh 10vw 0 10vw;
+
+}
+
 .section {
   text-align: center;
   display: flex;
@@ -23,6 +28,11 @@ h1 {
   margin-bottom: 0;
 }
 
+.section.one {
+  justify-content: left;
+  min-height: 92vh;
+}
+
 .section.one h2 {
   font-size: 1.4rem;
   margin-bottom: 50px;
@@ -33,10 +43,6 @@ h1 {
   opacity: .9;
 }
 
-.section.one {
-  justify-content: left;
-  min-height: 92vh;
-}
 
 .main-page-content {
   display: flex;
@@ -65,6 +71,8 @@ h1 {
   /* border-top: solid rgba(255, 255, 255, 0.179) 1px; */
   /* background-color: black; */
   z-index: 0;
+  min-height: 60vh;
+
 }
 
 .section.two h2 {
@@ -82,7 +90,7 @@ h1 {
   align-items: center;
   flex-direction: column;
   display: flex;
-
+  backdrop-filter: blur(5px);
   width: 300px;
   height: 200px;
   padding: 30px;
@@ -94,4 +102,25 @@ h1 {
 .button.test {
   height: 40px;
   margin: auto auto 0 auto;
+}
+
+
+.section.three {
+  /* min-height: 80vh; */
+  margin: 30px 0;
+}
+
+.mission-content-container {
+  background-color: rgba(0, 0, 0, 0.426);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  margin: 20px;
+
+}
+
+.section.four {
+  margin: 30px 0;
+  display: block;
+  /* min-height: 80vh; */
 }

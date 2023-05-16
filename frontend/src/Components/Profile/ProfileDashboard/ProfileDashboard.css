@@ -1,6 +1,12 @@
 .dashboard {
   display: flex;
+  margin-top: 8vh;
   padding: 50px 0 ;
+}
+
+.fontawesome {
+  height: 100px;
+  font-size: 2rem;
 }
 
 .profile-container {
@@ -9,6 +15,7 @@
 }
 
 .dashboard-container.left{
+  margin-left: 10vw;
   max-width: 30vw;
   padding-right: 20px;
 
@@ -18,10 +25,11 @@
 
 }
 .dashboard-container.middle {
-  min-width: 40vw;
+  min-width: 50vw;
 }
 .dashboard-container.right{
   width: 20vw;
+  margin-right: 10vw;
 }
 .dashboard-card-container {
   display: grid;
@@ -29,13 +37,6 @@
   grid-gap: 10px;
 }
 
-.dashboard-card {
-  height: 200px;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  background-color: #2a9d8f;
-}
 
 
 
@@ -53,6 +54,8 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
+
 }
 
 .card-category-container {
@@ -63,7 +66,7 @@
 
 .card {
   overflow: hidden;
-  background-color: #2a9d8f;
+  /* background-color: #2a9d8f; */
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 10px;
   height: 200px;
@@ -72,6 +75,7 @@
   justify-content: space-between;
   position: relative;
   border-radius: 10px;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
 }
 
 .card h2 {
@@ -115,7 +119,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2a9d8f;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
   color: white;
 }
 
@@ -126,17 +130,17 @@
   margin-bottom: 50px;
 }
 
-#github {
-  background-color: #181717;
-  color: white;
+#github:hover {
+  background-color: white;
+  color: black;
 }
 
-#facebook {
+#facebook:hover {
   color: white;
   background-color: #1877F2;
 }
 
-#instagram {
+#instagram:hover {
   color: white;
   background: #f09433;
   background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
@@ -145,16 +149,22 @@
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
 }
 
-#github:hover {
-  color: black;
+#github {
+  color: white;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
+
 }
 
-#facebook:hover {
-  color: black;
+#facebook {
+  color: white;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
+
 }
 
-#instagram:hover {
-  color: rgb(0, 0, 0);
+#instagram {
+  color: white;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
+
 }
 
 .svg-inline--fa {

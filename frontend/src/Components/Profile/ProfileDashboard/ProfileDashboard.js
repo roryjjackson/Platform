@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ProfileDashboard.css';
 import { faInstagram, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faMagnifyingGlass, faStar, faGears, faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ProfileDashboard() {
@@ -36,7 +37,7 @@ function ProfileDashboard() {
         </div>
         <div className='icon-container'>
           <div className='icon'>Img</div>
-          <div className='icon'>5 *</div>
+          <div className='icon'><FontAwesomeIcon icon={faStar} /></div>
         </div>
       </div>
       <div className='dashboard-container middle'>
@@ -44,23 +45,25 @@ function ProfileDashboard() {
         <div className='card-content'>
           <p>This is where it happens</p>
           <h2>Discover</h2>
+          <div className='fontawesome magnifying-glass'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+
         </div>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
       </div>
-        <div className='card-category-container'>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Following
-          </div>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Messaging
-          </div>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Trending
-          </div>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Settings
-          </div>
+      <div className='card-category-container'>
+        <div className="card-category">
+          Following
         </div>
+        <div className="card-category">
+          Messaging
+        </div>
+        <div className="card-category">
+          <div><FontAwesomeIcon icon={faArrowTrendUp} /></div>
+        </div>
+        <div className="card-category">
+          <div><FontAwesomeIcon icon={faGears} /></div>
+        </div>
+      </div>
 
 
         {/* <button className='button' onClick={handleButtonClick}>Fetch Profile content</button> */}
