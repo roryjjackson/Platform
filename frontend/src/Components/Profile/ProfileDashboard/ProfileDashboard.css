@@ -8,6 +8,10 @@
   font-size: 2rem;
 }
 
+.button.create-profile {
+  margin-left: 0;
+}
+
 .profile-container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

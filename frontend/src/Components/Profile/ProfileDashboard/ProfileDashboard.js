@@ -3,6 +3,7 @@ import './ProfileDashboard.css';
 import { faInstagram, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faMagnifyingGlass, faStar, faGears, faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 
 function ProfileDashboard() {
   const [profileData, setProfileData] = useState(null);
@@ -34,6 +35,9 @@ function ProfileDashboard() {
         <div>
           <h2 id='dashboard-title'>Dashboard</h2>
           <p>Take a look at your dashboard and all the features that are included</p>
+          < Link to='/users/dashboard/new' >
+            <button className='button create-profile'>Create Profile</button>
+          </Link>
         </div>
         <div className='icon-container'>
           <div className='icon'>Img</div>
