@@ -10,6 +10,7 @@ import GetCurrentUserDetails from './Authentication/GetCurrentUserDetails/GetCur
 import LogOutForm from './Authentication/LogOutForm/LogOutForm';
 import ProfileDashboard from './Components/Profile/ProfileDashboard/ProfileDashboard';
 import ProfileForm from './Components/Profile/ProfileForm/ProfileForm';
+import ProfileIndex from './Pages/ProfileIndex/ProfileIndex';
 
 export default function App() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="users/log_out" element={<LogOutForm />} />
           <Route path="users/dashboard" element={<ProfileDashboard />} />
           <Route path="users/dashboard/new" element={<ProfileForm />} />
+          <Route path="users/dashboard/index" element={<ProfileIndex />} />
         </Route>
       </Routes>
     </BrowserRouter>

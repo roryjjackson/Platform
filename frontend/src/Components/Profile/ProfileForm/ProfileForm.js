@@ -14,7 +14,8 @@ function ProfileForm() {
   })
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
-  // const [profileValid, setProfileValid] = useState(false);
+  const [profileValid, SetProfileValid] = useState(false);
+
   const navigate = useNavigate();
 
   function handleSubmit(values, { setSubmitting, resetForm }) {
@@ -22,49 +23,28 @@ function ProfileForm() {
     const url = 'http://localhost:3000/api/v1/profiles';
 
     fetch(`${url}`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'content-type': 'application/json',
         'Authorization': `Bearer ${authToken}`
+      },
+      body: JSON.stringify({ profile: values})
+    })
+    .then(response => {
+      if (response.ok) {
+        setSubmissionSuccess(true);
+        setSubmitting(false);
+        resetForm();
+      } else {
+        SetProfileValid(true)
+        console.log('user already has a profile')
+        throw new Error('Error submitting form data');
       }
     })
-      .then(response => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Error fetching Profile data');
-        }
-      })
-      .then(data => {
-        if (data.length < 0) {
-          // setProfileValid(true)
-          console.log(data)
-          console.log('an error has occured')
-          throw new Error('A Profile already exists for this user');
-        } else {
-          return fetch(url, {
-            method: 'POST',
-            headers: {
-              'content-type': 'application/json',
-              'Authorization': `Bearer ${authToken}`
-            },
-            body: JSON.stringify({ profile: values})
-          });
-        }
-      })
-      .then(response => {
-        if (response.ok) {
-          setSubmissionSuccess(true);
-          setSubmitting(false);
-          resetForm();
-        } else {
-          throw new Error('Error submitting form data');
-        }
-      })
-      .catch(error => {
-        console.error(error);
-        setSubmitting(false);
-      });
+    .catch(error => {
+      console.error(error);
+      setSubmitting(false);
+    });
   };
 
 
@@ -132,7 +112,7 @@ function ProfileForm() {
                   <ErrorMessage name="advice" />
                 </div>
                 {/* {profileValid && <p>User already has a profile, you cannot create another</p>} */}
-                {/* {profileValid && <p>There is already a profile for this user</p>} */}
+                {profileValid && <p>There is already a profile for this user</p>}
                 {submissionSuccess && <p>Successfully signed up!</p>}
                 <button className='button' type="submit" disabled={isSubmitting}>
                   Submit
