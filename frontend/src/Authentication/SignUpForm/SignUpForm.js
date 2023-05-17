@@ -78,34 +78,36 @@ function SignUpForm() {
   }, [submissionSuccess, navigate]);
 
   return (
-    <div>
-      <h2 className='page-title'>Sign Up</h2>
-      <div className='form-container'>
-        < Formik
-          className='user-signup'
-          validationSchema={validationSchema}
-          initialValues={initialValues}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form>
-              <div className='form-field'>
-                <label className='form-label' htmlFor="email">Email:</label>
-                <Field type="email" name="email" />
-                <ErrorMessage name="email" />
-              </div>
-              <div className='form-field'>
-                <label className='form-label' htmlFor="password">Password:</label>
-                <Field type="text" name="password" />
-                <ErrorMessage name="password" />
-              </div>
-              {submissionSuccess && <p>Successfully signed up!</p>}
-              <button className='button' type="submit" disabled={isSubmitting}>
-                Submit
-              </button>
-            </Form>
-          )}
-        </ Formik>
+    <div className='authentication'>
+      <div>
+        <h2 className='subheader'>Sign Up</h2>
+        <div className='form-container'>
+          < Formik
+            className='user-signup'
+            validationSchema={validationSchema}
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <div className='form-field'>
+                  <label className='form-label' htmlFor="email">Email:</label>
+                  <Field className='form-input' type="email" name="email" />
+                  <ErrorMessage name="email" />
+                </div>
+                <div className='form-field'>
+                  <label className='form-label' htmlFor="password">Password:</label>
+                  <Field className='form-input' type="text" name="password" />
+                  <ErrorMessage name="password" />
+                </div>
+                {submissionSuccess && <p>Successfully signed up!</p>}
+                <button className='button' type="submit" disabled={isSubmitting}>
+                  Submit
+                </button>
+              </Form>
+            )}
+          </ Formik>
+        </div>
       </div>
     </div>
     )

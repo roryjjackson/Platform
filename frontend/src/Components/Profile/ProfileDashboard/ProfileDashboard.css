@@ -1,17 +1,11 @@
-.profile-card {
-  border-radius: 5px;
-  margin: 20px;
-  background: transition;
-  background-image: linear-gradient(290deg,#2a9d8f, #264653);
-  color: white;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-
-}
-
 .dashboard {
   display: flex;
-  margin: 50x;
+  margin: 20vh 0 24vh 0;
+}
+
+.fontawesome {
+  height: 100px;
+  font-size: 2rem;
 }
 
 .profile-container {
@@ -20,13 +14,21 @@
 }
 
 .dashboard-container.left{
-  width: 30vw;
+  margin-left: 10vw;
+  max-width: 30vw;
+  padding-right: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 .dashboard-container.middle {
-  width: 50vw;
+  min-width: 50vw;
 }
 .dashboard-container.right{
   width: 20vw;
+  margin-right: 10vw;
 }
 .dashboard-card-container {
   display: grid;
@@ -34,14 +36,6 @@
   grid-gap: 10px;
 }
 
-.dashboard-card {
-  /* border: solid black 2px; */
-  height: 200px;
-  width: 100%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  border-radius: 20px;
-  background-color: #2a9d8f;
-}
 
 
 
@@ -57,8 +51,10 @@
   font-size: 24px;
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
+
 }
 
 .card-category-container {
@@ -67,9 +63,9 @@
   grid-gap: 10px;
 }
 
-.card-trip {
+.card {
   overflow: hidden;
-  background-color: #2a9d8f;
+  /* background-color: #2a9d8f; */
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   margin-bottom: 10px;
   height: 200px;
@@ -78,23 +74,24 @@
   justify-content: space-between;
   position: relative;
   border-radius: 10px;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
 }
 
-.card-trip h2 {
+.card h2 {
   font-size: 30px;
   font-weight: bold;
   margin: 0;
   color: white;
 }
 
-.card-trip p {
+.card p {
   font-size: 12px;
   opacity: .7;
   margin: 0;
   color: white;
 }
 
- .card-trip-user {
+ .card-user {
   position: absolute;
   right: 16px;
   bottom: 16px;
@@ -102,7 +99,7 @@
   border-radius: 3px;
 }
 
-.card-trip-content {
+.card-content {
   padding-top: 30px;
   text-align: center;
   width: 100%;
@@ -110,8 +107,6 @@
 
 .icon-container {
   display: flex;
-  position: absolute;
-  bottom: 100px;
 }
 
 .icon {
@@ -123,20 +118,20 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #2a9d8f;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
   color: white;
 }
 
 .social-media-icon {
   color: black;
   display: flex;
-  justify-content: center;
+  justify-content: right;
   margin-bottom: 50px;
 }
 
 #github:hover {
-  background-color: #181717;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 #facebook:hover {
@@ -151,23 +146,34 @@
   background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
   background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+}
+
+#github {
+  color: white;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
+
+}
+
+#facebook {
+  color: white;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
+
+}
+
+#instagram {
+  color: white;
+  background: linear-gradient( 45deg, #0400ff65, #ef00fc6d);
 
 }
 
 .svg-inline--fa {
   margin: auto;
-  height: 30px;
-}
-
-.dashboard-container.right {
-  justify-content: center;
-  margin: 0 auto;
+  height: 20px;
 }
 
 .dashboard-container.right li {
-  height: 50px;
-  width: 50px;
-  margin: auto 20px auto 0;
+  height: 40px;
+  width: 40px;
   background-color: #fff;
   border-radius: 50%;
   display: flex;

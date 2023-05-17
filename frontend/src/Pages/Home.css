@@ -1,15 +1,48 @@
+.home-page {
+  margin: 8vh 10vw 0 10vw;
+
+}
+
 .section {
-  min-height: 100vh;
-  padding: auto;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.section.one h2 {
-  font-size: 3rem;
+.image.map {
+  object-fit: cover;
+  height: 60vh;
+  position: fixed;
+  top: 20vh;
+  z-index: -1;
+  right: 10vw;
 }
+
+.button-container {
+  display: flex;
+}
+
+h1 {
+  font-size: 4.5rem;
+  margin-bottom: 0;
+}
+
+.section.one {
+  justify-content: left;
+  min-height: 92vh;
+}
+
+.section.one h2 {
+  font-size: 1.4rem;
+  margin-bottom: 50px;
+  opacity: .8;
+}
+
+.section.one p {
+  opacity: .9;
+}
+
 
 .main-page-content {
   display: flex;
@@ -20,29 +53,74 @@
   margin-bottom: 30px;
 }
 
-.main-page-content .right {
-  display: flex;
-  text-align: left;
-  align-items: center;
-}
-
-.main-page-content ul {
-  list-style: none;
-}
-
-.main-page-content li {
-  margin: 20px;
-}
-
-
 .main-page-content .left {
-  max-width: 60%;
+  max-width: 600px;
   text-align: left;
 }
 
-.main-page-content img {
-  max-height: 300px;
-  width: 80vw;
-  margin: 0 auto;
-  object-fit: cover;
+.button.lets-go {
+  margin: 0;
+  width: 120px;
+  padding: 10px;
+  font-size: 1.2rem;
+  margin-right: 10px;
+}
+
+
+.section.two {
+  /* border-top: solid rgba(255, 255, 255, 0.179) 1px; */
+  /* background-color: black; */
+  z-index: 0;
+  min-height: 60vh;
+
+}
+
+.section.two h2 {
+  text-align: center;
+}
+
+.method-container {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+}
+
+.method-card {
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  backdrop-filter: blur(5px);
+  width: 300px;
+  height: 200px;
+  padding: 30px;
+  background: linear-gradient( 45deg, #0400ffc0, #ef00fcce);
+  border-radius: 10px;
+  margin: 40px;
+}
+
+.button.test {
+  height: 40px;
+  margin: auto auto 0 auto;
+}
+
+
+.section.three {
+  /* min-height: 80vh; */
+  margin: 30px 0;
+}
+
+.mission-content-container {
+  background-color: rgba(0, 0, 0, 0.426);
+  border-radius: 10px;
+  backdrop-filter: blur(5px);
+  padding: 20px;
+  margin: 20px;
+
+}
+
+.section.four {
+  margin: 30px 0;
+  display: flex;
+  min-height: 50vh;
 }

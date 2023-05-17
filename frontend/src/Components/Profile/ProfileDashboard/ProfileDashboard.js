@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ProfileDashboard.css';
 import { faInstagram, faFacebook, faGithub } from '@fortawesome/free-brands-svg-icons'
+import { faMagnifyingGlass, faStar, faGears, faArrowTrendUp } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function ProfileDashboard() {
@@ -30,57 +31,39 @@ function ProfileDashboard() {
   return (
     <div className='dashboard'>
       <div className='dashboard-container left'>
-        <h2 id='dashboard-title'>Dashboard</h2>
-        <p>Take a look at your dashboard and all the features that are included</p>
+        <div>
+          <h2 id='dashboard-title'>Dashboard</h2>
+          <p>Take a look at your dashboard and all the features that are included</p>
+        </div>
         <div className='icon-container'>
-          <div className='icon'>Avatar</div>
-          <div className='icon'>Rating</div>
+          <div className='icon'>Img</div>
+          <div className='icon'><FontAwesomeIcon icon={faStar} /></div>
         </div>
       </div>
       <div className='dashboard-container middle'>
-      <div className="card-trip">
-        <div className='card-trip-content'>
+      <div className="card">
+        <div className='card-content'>
           <p>This is where it happens</p>
           <h2>Discover</h2>
+          <div className='fontawesome magnifying-glass'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+
         </div>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
       </div>
-
-
-        {/* <div className='dashboard-main-card'>
-          <div className='dashboard-main-card-content'>
-            <p>Explore</p>
-            <h3>Time to discover alternate paths</h3>
-            <button>Discover</button>
-          </div>
-          <div className='profile-container'>
-            {  profileData && profileData.map(profile => {
-                return<div className='profile-card'>
-                        <p>ID: {profile.id}</p>
-                        <p>Name: {profile.name}</p>
-                        <p>Why: {profile.why}</p>
-                        <p>What: {profile.what}</p>
-                        <p>How: {profile.how}</p>
-                        <p>Advice: {profile.advice}</p>
-                      </div>
-              })
-            }
-          </div>
-        </div> */}
-        <div className='card-category-container'>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Following
-          </div>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Messaging
-          </div>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Trending
-          </div>
-          <div className="card-category" style={{backgroundImage: "linear-gradient(to right bottom, #00b4db, #0083b0)"}}>
-            Settings
-          </div>
+      <div className='card-category-container'>
+        <div className="card-category">
+          Following
         </div>
+        <div className="card-category">
+          Messaging
+        </div>
+        <div className="card-category">
+          <div><FontAwesomeIcon icon={faArrowTrendUp} /></div>
+        </div>
+        <div className="card-category">
+          <div><FontAwesomeIcon icon={faGears} /></div>
+        </div>
+      </div>
 
 
         {/* <button className='button' onClick={handleButtonClick}>Fetch Profile content</button> */}

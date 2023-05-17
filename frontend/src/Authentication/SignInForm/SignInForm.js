@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-
+import './SignInForm.css';
 
 function SignInForm() {
   const initialValues = {
@@ -57,37 +57,39 @@ function SignInForm() {
   }, [submissionSuccess, navigate]);
 
   return (
-    <div>
-      <h2 className='page-title'>Login</h2>
-      <div className='form-container'>
-        < Formik
-          className='user-signup'
-          validationSchema={validationSchema}
-          initialValues={initialValues}
-          onSubmit={handleSubmit}
-        >
-          {({ isSubmitting }) => (
-            <Form>
-              <div className='form-field'>
-                <label className='form-label' htmlFor="email">Email:</label>
-                <Field type="email" name="email" />
-                <ErrorMessage name="email" />
-              </div>
-              <div className='form-field'>
-                <label className='form-label' htmlFor="password">Password:</label>
-                <Field type="text" name="password" />
-                <ErrorMessage name="password" />
-              </div>
-              {submissionSuccess && <p>Successfully signed in!</p>}
-              <button className='button' type="submit" disabled={isSubmitting}>
-                Login
-              </button>
-              <button className='button'>
-                < Link to="/users/sign_up">Sign Up</Link>
-              </button>
-            </Form>
-          )}
-        </ Formik>
+    <div className='authentication'>
+      <div>
+      <h2 className='subheader'>Login</h2>
+        <div className='form-container'>
+          < Formik
+            className='user-signup'
+            validationSchema={validationSchema}
+            initialValues={initialValues}
+            onSubmit={handleSubmit}
+          >
+            {({ isSubmitting }) => (
+              <Form>
+                <div className='form-field'>
+                  <label className='form-label' htmlFor="email">Email:</label>
+                  <Field className='form-input' type="email" name="email" />
+                  <ErrorMessage name="email" />
+                </div>
+                <div className='form-field'>
+                  <label className='form-label' htmlFor="password">Password:</label>
+                  <Field className='form-input' type="text" name="password" />
+                  <ErrorMessage name="password" />
+                </div>
+                {submissionSuccess && <p>Successfully signed in!</p>}
+                <button className='button' type="submit" disabled={isSubmitting}>
+                  Login
+                </button>
+                <button className='button'>
+                  < Link to="/users/sign_up">Sign Up</Link>
+                </button>
+              </Form>
+            )}
+          </ Formik>
+        </div>
       </div>
     </div>
     )

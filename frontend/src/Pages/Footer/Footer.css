@@ -1,0 +1,10 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  /* border-top: solid rgba(255, 255, 255, 0.246) 1px; */
+  padding: 30px 0;
+  /* background-color: black; */
+  background: linear-gradient( 45deg, #0400ff66, #ef00fc69);
+  padding: 20px 10vw;
+
+}

@@ -2,21 +2,22 @@
   text-align: center;
   color: #264653;
   font-size: 4rem;
+  margin: 0;
 }
 
 .button {
-  width: 200px;
   margin: 20px auto;
   background-color: #ffbf4b;
   background-image:  #ffbf4b;
-  padding: 20px;
   border-radius: 5px;
   border: none;
   color: black;
   justify-content: center;
   display: flex;
+  align-items: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+  padding: 10px;
 }
 
 a {
@@ -31,21 +32,27 @@ a {
 }
 
 .form-field {
-  display: flex;
-  justify-content: right;
+  /* justify-content: right; */
   margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {
   margin-right: 10px;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+}
+
+.form-input {
+  width: 40vw;
+  height: 30px;
 }
 
 Form {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  background-image: linear-gradient(290deg,#2a9d8f, #264653);
+  background: linear-gradient( 45deg, #0400ffc0, #ef00fcce);
   padding: 80px;
 }
 
@@ -53,4 +60,10 @@ Form {
   color: white;
   padding-left: 10px;
   margin: 0;
+}
+
+.subheader {
+  width: 100%;
+  text-align: center;
+  font-size: 2.5rem;
 }
