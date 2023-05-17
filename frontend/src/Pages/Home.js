@@ -1,6 +1,5 @@
 import GetCurrentUserDetails from "../Authentication/GetCurrentUserDetails/GetCurrentUserDetails";
 import './Home.css';
-import Footer from "./Footer/Footer";
 
 const Home = () => {
   return(
@@ -67,14 +66,15 @@ const Home = () => {
       </section>
 
       <section className="section four">
-        <h2 className="subheader">How to get started</h2>
-        <p>If you believe you have something to share, and would like to buddy up with someone, sign up below!</p>
         <div>
-          <button className="button test">Let's begin</button>
+          <h2 className="subheader">How to get started</h2>
+          <p>If you believe you have something to share, and would like to buddy up with someone, sign up below!</p>
+          <div>
+            <button className="button test">Let's begin</button>
+          </div>
         </div>
       </section>
     </div>
-      < Footer />
     </>
   );
 };

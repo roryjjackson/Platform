@@ -1,7 +1,6 @@
 .dashboard {
   display: flex;
-  margin-top: 8vh;
-  padding: 50px 0 ;
+  margin: 20vh 0 24vh 0;
 }
 
 .fontawesome {

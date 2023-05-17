@@ -1,0 +1,8 @@
+.authentication {
+
+  height: 92vh;
+  margin-top: 8vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

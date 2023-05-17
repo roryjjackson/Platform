@@ -46,8 +46,7 @@ function LogOutForm() {
   }, [loggedOut, navigate]);
 
   return (
-    <div>
-      <h2 className='page-title'>Log out</h2>
+    <div >
       <button className='button' onClick={handleSubmit} type="submit">
         Log out
       </button>

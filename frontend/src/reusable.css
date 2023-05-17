@@ -32,7 +32,6 @@ a {
 }
 
 .form-field {
-  display: flex;
   justify-content: right;
   margin: 20px;
 }
@@ -40,13 +39,18 @@ a {
 .form-label {
   margin-right: 10px;
   color: white;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
+}
+
+.form-input {
+  width: 200px;
+  height: 30px;
 }
 
 Form {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  background-image: linear-gradient(290deg,#2a9d8f, #264653);
+  background: linear-gradient( 45deg, #0400ffc0, #ef00fcce);
   padding: 80px;
 }
 

@@ -121,6 +121,6 @@ h1 {
 
 .section.four {
   margin: 30px 0;
-  display: block;
-  /* min-height: 80vh; */
+  display: flex;
+  min-height: 50vh;
 }
