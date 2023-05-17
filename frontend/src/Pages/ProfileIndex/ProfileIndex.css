@@ -1,0 +1,14 @@
+.profiles-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 92vh;
+  margin-top: 8vh;
+  margin: 8vh 10vw 12vh 10vw;
+}
+
+.profile-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-gap: 20px;
+}

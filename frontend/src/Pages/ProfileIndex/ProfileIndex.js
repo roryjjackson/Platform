@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import './ProfileIndex.css';
+import ProfileDisplay from './ProfileDisplay/ProfileDisplay';
 
 function ProfileIndex() {
   const [profilesData, setProfilesData] = useState([]);
@@ -18,6 +19,7 @@ function ProfileIndex() {
         if (response.ok) {
           const data = await response.json();
           setProfilesData(data);
+          console.log(data)
         } else {
           console.error('Error:', response.status);
         }
@@ -30,20 +32,19 @@ function ProfileIndex() {
   }, []);
 
   return (
-    <div>
-      <h2>Profiles</h2>
-      {profilesData.length === 0 ? (
-        <p>No profiles found.</p>
-      ) : (
-        <ul>
-          {profilesData.map((profile) => (
-            <li key={profile.id}>{profile.name}</li>
-          ))}
-        </ul>
-      )}
-
-      {/* Optionally, you can create a separate component for creating a profile and navigate to it */}
-      {/* <button onClick={() => history.push('/create-profile')}>Create Profile</button> */}
+    <div className='profiles-index'>
+      <div>
+      <h2 className='subheader'>Profiles</h2>
+        {profilesData.length === 0 ? (
+          <p>No profiles found.</p>
+        ) : (
+          <div className='profile-grid-container'>
+            {profilesData.map((profile) => (
+              <ProfileDisplay profile={profile} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 }
