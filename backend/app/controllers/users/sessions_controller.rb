@@ -20,7 +20,8 @@ class Users::SessionsController < Devise::SessionsController
     if current_user
       render json: {
         status: 200,
-        message: 'Signed out successfully'
+        message: 'Signed out successfully',
+        clear_auth_token: true
       }, status: :ok
       else
         render json: {
