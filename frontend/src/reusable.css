@@ -32,8 +32,10 @@ a {
 }
 
 .form-field {
-  justify-content: right;
+  /* justify-content: right; */
   margin: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
 .form-label {
@@ -43,7 +45,7 @@ a {
 }
 
 .form-input {
-  width: 200px;
+  width: 40vw;
   height: 30px;
 }
 
