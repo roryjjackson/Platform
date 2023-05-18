@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import './ProfileIndex.css';
 import ProfileDisplay from './ProfileDisplay/ProfileDisplay';
-
+import { Link } from 'react-router-dom';
+import ProfileShow from './ProfileShow/ProfileShow';
 function ProfileIndex() {
   const [profilesData, setProfilesData] = useState([]);
 
@@ -40,7 +41,9 @@ function ProfileIndex() {
         ) : (
           <div className='profile-grid-container'>
             {profilesData.map((profile) => (
-              <ProfileDisplay profile={profile} />
+              <Link to={`/users/dashboard/index/${profile.id}`} key={profile.id}>
+                <ProfileDisplay profile={profile} />
+              </Link>
             ))}
           </div>
         )}

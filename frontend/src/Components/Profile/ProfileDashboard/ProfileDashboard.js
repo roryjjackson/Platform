@@ -45,29 +45,31 @@ function ProfileDashboard() {
         </div>
       </div>
       <div className='dashboard-container middle'>
-      <div className="card">
-        <div className='card-content'>
-          <p>This is where it happens</p>
-          <h2>Discover</h2>
-          <div className='fontawesome magnifying-glass'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
+        <Link to='/users/dashboard/index'>
+          <div className="card">
+            <div className='card-content'>
+              <p>This is where it happens</p>
+              <h2>Discover</h2>
+              <div className='fontawesome magnifying-glass'><FontAwesomeIcon icon={faMagnifyingGlass} /></div>
 
-        </div>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
-      </div>
-      <div className='card-category-container'>
-        <div className="card-category">
-          Following
-        </div>
-        <div className="card-category">
-          Messaging
-        </div>
-        <div className="card-category">
-          <div><FontAwesomeIcon icon={faArrowTrendUp} /></div>
-        </div>
-        <div className="card-category">
-          <div><FontAwesomeIcon icon={faGears} /></div>
-        </div>
-      </div>
+            </div>
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
+          </div>
+        </Link>
+          <div className='card-category-container'>
+            <div className="card-category">
+              Following
+            </div>
+            <div className="card-category">
+              Messaging
+            </div>
+            <div className="card-category">
+              <div><FontAwesomeIcon icon={faArrowTrendUp} /></div>
+            </div>
+            <div className="card-category">
+              <div><FontAwesomeIcon icon={faGears} /></div>
+            </div>
+          </div>
 
 
         {/* <button className='button' onClick={handleButtonClick}>Fetch Profile content</button> */}

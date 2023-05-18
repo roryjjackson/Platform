@@ -11,6 +11,7 @@ import LogOutForm from './Authentication/LogOutForm/LogOutForm';
 import ProfileDashboard from './Components/Profile/ProfileDashboard/ProfileDashboard';
 import ProfileForm from './Components/Profile/ProfileForm/ProfileForm';
 import ProfileIndex from './Pages/ProfileIndex/ProfileIndex';
+import ProfileShow from './Pages/ProfileIndex/ProfileShow/ProfileShow';
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
           <Route path="users/dashboard" element={<ProfileDashboard />} />
           <Route path="users/dashboard/new" element={<ProfileForm />} />
           <Route path="users/dashboard/index" element={<ProfileIndex />} />
+          <Route path="users/dashboard/index/:id" element={<ProfileShow />} />
         </Route>
       </Routes>
     </BrowserRouter>

@@ -14,8 +14,9 @@ const Home = () => {
               <h2>The app that helps you explore lifes opportunites, through the eyes of others</h2>
               <p>Find experienced professionals willing to help...</p>
               <div className="button-container">
-                <button className="button lets-go">Lets go</button>
+              <Link to="/users/dashboard/index">
                 <button className="button lets-go">Discover</button>
+              </Link>
               </div>
             </div>
         </div>
