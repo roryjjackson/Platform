@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import './ProfileShow.css';
 
 function ProfileShow() {
   const { id } = useParams();
@@ -34,15 +35,21 @@ function ProfileShow() {
   return (
     <div>
       {/* Render the profile details */}
-
         {profileData === null ? (
-          <p>No profile found.</p>
-        ) : (
-          <div>
-            <h2>{profileData.name}</h2>
-            <p>{profileData.id}</p>
+          // <p>No profile found.</p>
+          <div className='profile-show-container'>
+            {/* <p>Sorry, we couldnt find that profile :(</p> */}
+          </div>
+          ) : (
+          <div className='profile-show-container'>
+            <h2 className='subheader'>{profileData.name}</h2>
+            <p>{profileData.job_title}</p>
+            <p>{profileData.hours}</p>
             <p>{profileData.what}</p>
-            {/* Render other profile information */}
+            <p>{profileData.why}</p>
+            <p>{profileData.how}</p>
+            <p>{profileData.advice}</p>
+            <p>{profileData.job_satisfaction}</p>
           </div>
         )}
     </div>
