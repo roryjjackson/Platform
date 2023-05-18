@@ -15,7 +15,9 @@ class Api::V1::ProfilesController < ApiController
   end
 
   def show
+    authorize @profile
     render json: @profile, status: :ok
+
   end
 
   def new

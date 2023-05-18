@@ -1,5 +1,6 @@
 import GetCurrentUserDetails from "../Authentication/GetCurrentUserDetails/GetCurrentUserDetails";
 import './Home.css';
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   return(
@@ -13,8 +14,9 @@ const Home = () => {
               <h2>The app that helps you explore lifes opportunites, through the eyes of others</h2>
               <p>Find experienced professionals willing to help...</p>
               <div className="button-container">
-                <button className="button lets-go">Lets go</button>
+              <Link to="/users/dashboard/index">
                 <button className="button lets-go">Discover</button>
+              </Link>
               </div>
             </div>
         </div>
@@ -39,7 +41,9 @@ const Home = () => {
                 <h3>Step two:</h3>
                 <p>Discover our portfolio of professionals willing to help, and become inspired by their journeys!</p>
               </div>
-              <button className="button test">Discover</button>
+              <Link to="/users/dashboard/index">
+                <button className="button test">Discover</button>
+              </Link>
             </div>
           </div>
           <div className="method-container">
