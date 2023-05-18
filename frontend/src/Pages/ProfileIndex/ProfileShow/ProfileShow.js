@@ -30,7 +30,7 @@ function ProfileShow() {
     };
 
     fetchProfile();
-  });
+  }, [id]);
 
   return (
     <div>
