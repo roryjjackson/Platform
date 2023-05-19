@@ -27,7 +27,7 @@ class Api::V1::ProfilesController < ApiController
 
   def create
     @profile = Profile.new(profile_params)
-    # @profile = current_user.profile.new(company_params)
+    @profile.photo.attach(params[:photo])
     puts "current user #{current_user.id}"
     @profile.user = current_user
     authorize @profile
@@ -69,7 +69,16 @@ class Api::V1::ProfilesController < ApiController
   private
 
   def profile_params
-    params.require(:profile).permit(:name, :helper, :how, :why, :what, :advice, :hours, :job_satisfaction, :job_title)
+    params.require(:profile).permit(:name,
+                                    :helper,
+                                    :how,
+                                    :why,
+                                    :what,
+                                    :advice,
+                                    :hours,
+                                    :job_satisfaction,
+                                    :job_title,
+                                    :photo)
   end
 
   def set_profile

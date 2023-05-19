@@ -1,26 +1,53 @@
 import React, { useState, useEffect } from 'react';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, setFieldValue } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
 import './ProfileForm.css';
 
 function ProfileForm() {
   const initialValues = {
-    name: ''
-  }
+    name: '',
+    // photo: null,
+    hours: '',
+    job_title: '',
+    how: '',
+    why: '',
+    what: '',
+    advice: '',
+  };
 
-  const validationSchema =  Yup.object().shape({
+
+  const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
-  })
+    // photo: Yup.mixed().required('Photo is required'),
+    hours: Yup.string().required('Hours is required'),
+    job_title: Yup.string().required('Job title is required'),
+    how: Yup.string().required('How did you get started is required'),
+    why: Yup.string().required('Why did you get started is required'),
+    what: Yup.string().required('What do you do day to day is required'),
+    advice: Yup.string().required('Advice is required'),
+  });
 
   const [submissionSuccess, setSubmissionSuccess] = useState(false);
   const [profileValid, SetProfileValid] = useState(false);
 
   const navigate = useNavigate();
 
+
+
+
   function handleSubmit(values, { setSubmitting, resetForm }) {
     const authToken = localStorage.getItem('authToken');
     const url = 'http://localhost:3000/api/v1/profiles';
+    const formData = new FormData();
+    formData.append('profile[name]', values.name);
+    // formData.append('profile[photo]', values.photo);
+    formData.append('profile[hours]', values.hours);
+    formData.append('profile[job_title]', values.job_title);
+    formData.append('profile[how]', values.how);
+    formData.append('profile[why]', values.why);
+    formData.append('profile[why]', values.what);
+    formData.append('profile[why]', values.advice);
 
     fetch(`${url}`, {
       method: 'POST',
@@ -28,7 +55,7 @@ function ProfileForm() {
         'content-type': 'application/json',
         'Authorization': `Bearer ${authToken}`
       },
-      body: JSON.stringify({ profile: values})
+      body: formData
     })
     .then(response => {
       if (response.ok) {
@@ -76,6 +103,22 @@ function ProfileForm() {
                   <Field className='form-input create-profile' type="text" name="name" />
                   <ErrorMessage name="name" />
                 </div>
+
+
+                {/* <div className="form-field">
+                  <label className="form-label" htmlFor="photo">
+                    Photo:
+                  </label>
+                  <Field
+                    className="form-input create-profile"
+                    type="file"
+                    name="photo"
+                    // onChange={(event) => {
+                    //   setFieldValue('photo', event.currentTarget.files[0]);
+                    // }}
+                  />
+                  <ErrorMessage name="photo" />
+                </div> */}
                 {/* <div className='form-field'>
                   <label className='form-label' htmlFor="helper">Helper:</label>
                   <Field className='form-input create-profile' type="checkbox" name="helper" initialValue={false} />
